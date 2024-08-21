@@ -1,0 +1,76 @@
+# Package Overview
+package_name: model
+
+# Data Files
+training_data_file: train_subset.csv
+
+# Variables
+# The variable we are attempting to predict (cnt)
+target: Response
+
+pipeline_name: cross_insurane_model
+pipeline_save_file: cross_insurance__model_output_v
+
+# Features that will go inside processing pipeline
+features:
+  - Gender
+  - Age
+  - Driving_License
+  - Region_Code
+  - Previously_Insured
+  - Vehicle_Age
+  - Vehicle_Damage
+  - Annual_Premium
+  - Policy_Sales_Channel
+  - Vintage
+
+
+
+
+unused_fields:  # Features to drop before pipeline
+  - id
+
+
+
+
+# Features names
+
+gender_var: Gender
+age_var: Age
+driving_license_var: Driving_License
+region_code_var: Region_Code
+previously_insured_var: Previously_Insured
+vehicle_age_var: Vehicle_Age
+vehicle_damage_var: Vehicle_Damage
+annual_premium_var: Annual_Premium
+policy_sales_channel_var: Policy_Sales_Channel
+vintage_var: Vintage
+
+
+
+# Mappings for Ordinal categorical features
+
+vehicle_age_mappings: 
+  '< 1 Year': 0
+  '1-2 Year': 1
+  '> 2 Years': 2
+
+vehicle_damage_mappings:
+  Yes: 1
+  No: 0
+
+
+gender_mappings:
+  Male: 0
+  Female: 1
+
+  
+# Set train/test split
+test_size: 0.20
+
+# Set the random seed
+random_state: 42
+
+# Alogrithm parameters
+n_estimators: 100
+max_depth: 10
